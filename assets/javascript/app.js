@@ -1,6 +1,8 @@
 let apiKey = "DHFPFZvIU7Bue4giRFcQrRYyH0kMKDEU";
 let queryUrl = "https://api.giphy.com/v1/gifs/search?";
 
+var topics = ["Burger King","Taco Bell","Wendy's","Chick-Fil-A","El Pollo Loco","McDonald's"];
+
 
 function buildQueryUrl(baseUrl){
     let tempUrl = baseUrl;
@@ -19,6 +21,7 @@ function buildQueryUrl(baseUrl){
 }
 
 $(document).ready(function(){
+    buildButtons($("#btn-div"));
     $("#main-button").click(function(){
         $.ajax(
             {
@@ -32,3 +35,15 @@ $(document).ready(function(){
         });
     });
 });
+
+
+function buildButtons(theDiv){
+    theDiv.empty();
+    for(let i=0; i < topics.length; i++){
+        let newButton = $("<button>");
+        newButton.attr("type","button");
+        newButton.addClass("btn btn-primary m-2");
+        newButton.text(topics[i]);
+        theDiv.append(newButton);
+    }
+}
