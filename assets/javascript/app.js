@@ -1,8 +1,8 @@
-let apiKey = "DHFPFZvIU7Bue4giRFcQrRYyH0kMKDEU";
-let queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + 
+const apiKey = "DHFPFZvIU7Bue4giRFcQrRYyH0kMKDEU";
+const queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + 
   "&limit=10&offset=0&rating=g&lang=en";
 
-var topics = ["Burger King","Taco Bell","Wendy's","Chick-Fil-A","El Pollo Loco","McDonald's"];
+const topics = ["Burger King","Taco Bell","Wendy's","Chick-Fil-A","El Pollo Loco","McDonald's"];
 
 $(document).ready(function(){
     buildButtons($("#btn-div"));
@@ -45,14 +45,30 @@ function grabGifs(){
 function renderGifs(gifObj, theDiv){
     theDiv.empty();
     for(let i=0; i < gifObj.data.length; i++){
+        let newDiv = $("<div>");
         let newImg = $("<img>");
-        newImg.attr("src",gifObj.data[i].images.fixed_height_still.url);
+        let subDiv = $("<div>");
+        let p = $("<p>");
+
+        newDiv.addClass("card p-0 m-2 col-lg-3");
+
+
+        newImg.attr("src",gifObj.data[i].images.fixed_width_still.url);
         newImg.attr("alt",gifObj.data[i].title);
-        newImg.attr("data-still",gifObj.data[i].images.fixed_height_still.url);
-        newImg.attr("data-animate",gifObj.data[i].images.fixed_height.url);
+        newImg.attr("data-still",gifObj.data[i].images.fixed_width_still.url);
+        newImg.attr("data-animate",gifObj.data[i].images.fixed_width.url);
         newImg.attr("data-state","still");
-        newImg.addClass("gif");
-        theDiv.append(newImg);
+        newImg.addClass("card-img-top gif");
+
+        subDiv.addClass("card-body");
+
+        p.addClass("card-text");
+        p.text(gifObj.data[i].rating);
+
+        subDiv.append(p);
+        newDiv.append(newImg);
+        newDiv.append(subDiv);
+        theDiv.append(newDiv);
     }
 }
 
