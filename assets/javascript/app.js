@@ -6,15 +6,27 @@ const topics = ["Burger King","Taco Bell","Wendy's","Chick-Fil-A","El Pollo Loco
 
 $(document).ready(function(){
     buildButtons($("#btn-div"));
+    $("#add-btn").click(function(){addCategory();});
 });
 
+function addCategory(){
+    let  newCategory = $("#add-text").val();
+
+    //only push the new category in if it isn't already there and it isn't blank
+    if(! topics.includes(newCategory) && (newCategory.length >= 1)){
+        topics.push(newCategory);
+        buildButtons($("#btn-div"));
+        console.log(`New category to add is: ${newCategory}`);
+        $("#add-text").val("");
+    }
+}
 
 function buildButtons(theDiv){
     theDiv.empty();
     for(let i=0; i < topics.length; i++){
         let newButton = $("<button>");
         newButton.attr("type","button");
-        newButton.addClass("btn btn-primary m-2");
+        newButton.addClass("btn btn-dark m-2 gif-btn");
         newButton.text(topics[i]);
         theDiv.append(newButton);
     }
@@ -88,5 +100,5 @@ function toggleGif(){
     }
 }
 
-$(document).on("click",".btn",grabGifs);
+$(document).on("click",".gif-btn",grabGifs);
 $(document).on("click",".gif",toggleGif);
