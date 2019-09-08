@@ -1,6 +1,6 @@
 const apiKey = "DHFPFZvIU7Bue4giRFcQrRYyH0kMKDEU";
 const queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + 
-  "&limit=10&offset=0&rating=g&lang=en";
+  "&limit=10&offset=0&rating=pg-13&lang=en";
 
 const topics = ["Burger King","Taco Bell","Wendy's","Chick-Fil-A","El Pollo Loco","McDonald's"];
 
@@ -63,7 +63,7 @@ function renderGifs(gifObj, theDiv){
         subDiv.addClass("card-body");
 
         p.addClass("card-text");
-        p.text(gifObj.data[i].rating);
+        p.text(`Rating: ${gifObj.data[i].rating.toUpperCase()}`);
 
         subDiv.append(p);
         newDiv.append(newImg);
