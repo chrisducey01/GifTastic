@@ -2,7 +2,7 @@ const apiKey = "DHFPFZvIU7Bue4giRFcQrRYyH0kMKDEU";
 const queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + 
   "&limit=10&offset=0&rating=pg-13&lang=en";
 
-const topics = ["Burger King","Taco Bell","Wendy's","Chick-Fil-A","El Pollo Loco","McDonald's"];
+const topics = ["Pancakes","Nachos","Chicken Fingers","Pizza","Pasta","Lobster","Brownies"];
 
 $(document).ready(function(){
     buildButtons($("#btn-div"));
@@ -62,7 +62,7 @@ function renderGifs(gifObj, theDiv){
         let subDiv = $("<div>");
         let p = $("<p>");
 
-        newDiv.addClass("card p-0 m-2 col-lg-3");
+        newDiv.addClass("card p-0 m-2 col-lg-3 border-0");
 
 
         newImg.attr("src",gifObj.data[i].images.fixed_width_still.url);
@@ -72,7 +72,7 @@ function renderGifs(gifObj, theDiv){
         newImg.attr("data-state","still");
         newImg.addClass("card-img-top gif");
 
-        subDiv.addClass("card-body");
+        subDiv.addClass("card-body border border-dark bg-dark");
 
         p.addClass("card-text");
         p.text(`Rating: ${gifObj.data[i].rating.toUpperCase()}`);

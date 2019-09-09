@@ -1,7 +1,16 @@
-img{
-    height: 100%;
+.gif{
+  height: 100%;
 }
 
 .navbar-brand{
     color: white !important;
+}
+
+.card-body{
+    color: #28a745 !important;    
+}
+
+body, .container, .row, div, .jumbotron{
+    background: #667480;
+    background-color: #667480;
 }
