@@ -7,6 +7,15 @@ const topics = ["Pancakes","Nachos","Chicken Fingers","Pizza","Pasta","Lobster",
 $(document).ready(function(){
     buildButtons($("#btn-div"));
     $("#add-btn").click(function(){addCategory();});
+    $("#add-text").keypress(function(e){
+        if(e.which == 13){
+            console.log("You pressed enter!");
+            addCategory();
+        }
+        else{
+
+        }
+    });
 });
 
 function addCategory(){
