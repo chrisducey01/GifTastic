@@ -86,7 +86,7 @@ function renderGifs(gifObj, theDiv){
         newImg.attr("data-state","still");
         newImg.addClass("card-img-top gif");
 
-        subDiv.addClass("card-body border border-dark bg-dark");
+        subDiv.addClass("card-body border border-dark bg-dark text-center");
 
         p.addClass("card-text");
         p.text(`Rating: ${gifObj.data[i].rating.toUpperCase()}`);
