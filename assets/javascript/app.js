@@ -63,11 +63,6 @@ function grabGifs(){
             method: "GET"
         }
     ).then(function(response){
-        console.log(response);
-        /*
-        $(".card-img-top").attr("src",response.data[0].images.original.url);
-        $(".card-title").text(response.data[0].rating);
-        */
        renderGifs(response,$("#gif-div"));
     });
 

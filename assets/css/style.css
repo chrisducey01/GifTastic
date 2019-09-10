@@ -14,3 +14,11 @@ body, .container, .row, div, .jumbotron{
     background: #667480;
     background-color: #667480;
 }
+
+h1{
+    font-family: 'Abril Fatface', cursive;
+}
+
+.lead{
+    font-family: 'Gayathri', sans-serif;
+}
