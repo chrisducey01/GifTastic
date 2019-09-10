@@ -20,9 +20,19 @@ $(document).ready(function(){
 
 function addCategory(){
     let  newCategory = $("#add-text").val();
-
+    console.log(newCategory);
     //only push the new category in if it isn't already there and it isn't blank
-    if(! topics.includes(newCategory) && (newCategory.length >= 1)){
+    if(topics.includes(newCategory)){
+        $("#add-text").addClass("is-invalid");
+        $("#add-text").attr("data-original-title",`${newCategory} already exists.  Try something else.`).tooltip('show');
+    }
+    else if(newCategory.length === 0){
+        $("#add-text").addClass("is-invalid");
+        $("#add-text").attr("data-original-title",`Please enter a non-blank value.`).tooltip('show');
+    }
+    else{
+        $("#add-text").tooltip('hide');
+        $("#add-text").removeClass("is-invalid");
         topics.push(newCategory);
         buildButtons($("#btn-div"));
         console.log(`New category to add is: ${newCategory}`);
