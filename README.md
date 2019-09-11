@@ -3,6 +3,7 @@ Website that uses the Giphy API to display gifs based on categories a user choos
 
 # Purpose
 This site was built as a demo to show how to use AJAX calls and then dynamically present content in the HTML based on the response object.  
+
 __Note:__ The API key used for Giphy is a development key.  The deployed version of this site is for demonstration purposes only.  Using the API key with a high volume of calls will result in the key being blocked.
 
 # See it in Action
